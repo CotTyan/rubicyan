@@ -5,12 +5,14 @@ import random
 import os
 import time
 client = discord.Client()
+@client.event
+async def on_ready():
+    await client.change_presence(activity=discord.Game(name='RubiTyanV 1.0'))
 
 @client.event
 async def on_message(message):
     if message.author.bot:
         return
-
     global voich
     # voice = await join_voice_channel(client.get_channel())
     if message.content == ("///rubi help"):
